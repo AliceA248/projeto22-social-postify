@@ -6,13 +6,15 @@ describe('MediasService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [MediasService],
+      providers: [MediasService], 
     }).compile();
 
-    service = module.get<MediasService>(MediasService);
+    service = module.get<MediasService>(MediasService); 
   });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+
 });

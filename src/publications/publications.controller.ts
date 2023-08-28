@@ -1,14 +1,14 @@
 import { Controller, Get, Post, Body, Param, Delete, HttpException, HttpCode, Put } from '@nestjs/common';
 import { PublicationsService } from './publications.service';
-import { CreatePublicationDto } from './dto/create.publication';
-import { UpdatePublicationDto } from './dto/update.publication';
+import { CreatePublication } from './dto/create.publication';
+import { UpdatePublication } from './dto/update.publication';
 
 @Controller('publications')
 export class PublicationsController {
   constructor(private readonly publicationsService: PublicationsService) {}
 
   @Post()
-  async create(@Body() createPublicationDto: CreatePublicationDto) {
+  async create(@Body() createPublicationDto: CreatePublication) {
     try {
       const newPublication = await this.publicationsService.create(createPublicationDto);
       return { message: 'Publication created', publication: newPublication };
@@ -41,7 +41,7 @@ export class PublicationsController {
   }
 
   @Put(':id')
-  async update(@Param('id') id: string, @Body() updatePublicationDto: UpdatePublicationDto) {
+  async update(@Param('id') id: string, @Body() updatePublicationDto: UpdatePublication) {
     try {
       const updatedPublication = await this.publicationsService.update(+id, updatePublicationDto);
       return { message: 'Publication updated', publication: updatedPublication };

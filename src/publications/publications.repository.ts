@@ -1,6 +1,6 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { CreatePublicationDto } from './dto/create.publication';
-import { UpdatePublicationDto } from './dto/update.publication';
+import { CreatePublication } from './dto/create.publication';
+import { UpdatePublication } from './dto/update.publication';
 import { PrismaService } from '../prisma/prisma.service';
 import { Publications as PublicationModel } from '@prisma/client';
 
@@ -8,7 +8,7 @@ import { Publications as PublicationModel } from '@prisma/client';
 export class PublicationsRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(createPublicationDto: CreatePublicationDto): Promise<PublicationModel> {
+  async create(createPublicationDto: CreatePublication): Promise<PublicationModel> {
     const newPublication = await this.prisma.publications.create({
       data: createPublicationDto,
     });
@@ -27,7 +27,7 @@ export class PublicationsRepository {
     return publication;
   }
 
-  async update(id: number, updatePublicationDto: UpdatePublicationDto): Promise<PublicationModel> {
+  async update(id: number, updatePublicationDto: UpdatePublication): Promise<PublicationModel> {
     const existingPublication = await this.findOne(id);
     if (!existingPublication) {
       throw new HttpException('Publication not found', 403);

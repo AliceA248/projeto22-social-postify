@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete, HttpException, Put, HttpCode } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, HttpException, Put, HttpCode, ValidationPipe } from '@nestjs/common';
 import { MediasService } from './medias.service';
 import { MediaCreationRequest } from './dto/create.media';
 import { UpdateMedia } from './dto/update.media';
@@ -8,7 +8,7 @@ export class MediasController {
   constructor(private readonly mediasService: MediasService) {}
 
   @Post()
-  create(@Body() createMediaDto: MediaCreationRequest) {
+  create(@Body(new ValidationPipe()) createMediaDto: MediaCreationRequest) {
     try {
       return this.mediasService.create(createMediaDto);
     } catch (error) {
@@ -26,22 +26,24 @@ export class MediasController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    const result = this.mediasService.findOne(+id);
-    if (result === undefined) {
-      throw new HttpException('Media not found', 404);
+    try {
+      return this.mediasService.findOne(+id);
+    } catch (error) {
+      if (error.message === 'Media not found') {
+        throw new HttpException(error.message, 404);
+      }
+      throw new HttpException(error.message, 500);
     }
-    return result;
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateMediaDto: UpdateMedia) {
+  update(@Param('id') id: string, @Body(new ValidationPipe()) updateMediaDto: UpdateMedia) {
     try {
       return this.mediasService.update(+id, updateMediaDto);
     } catch (error) {
       if (error.message === 'Media not found') {
         throw new HttpException(error.message, 404);
       }
-
       throw new HttpException(error.message, 500);
     }
   }

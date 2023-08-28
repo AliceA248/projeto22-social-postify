@@ -17,4 +17,18 @@ describe('PostsController', () => {
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  it('should return an array of posts', async () => {
+    const result = await controller.findAll();
+    expect(result).toBeInstanceOf(Array);
+    expect(result.length).toBeGreaterThan(0);
+  });
+
+  it('should return a specific post', async () => {
+    const postId = '1';
+    const result = await controller.findOne(postId);
+    expect(result).toBeDefined();
+    expect(result.id).toEqual(postId);
+  });
+
 });

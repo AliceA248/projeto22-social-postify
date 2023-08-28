@@ -1,9 +1,9 @@
 import { PartialType } from '@nestjs/mapped-types';
-import { CreatePublicationDto } from './create.publication';
+import { CreatePublication } from './create.publication';
 import { IsNotEmpty, IsNumber, IsOptional } from 'class-validator';
 import { Type } from 'class-transformer';
 
-export class UpdatePublicationDto extends PartialType(CreatePublicationDto) {
+export class UpdatePublication extends PartialType(CreatePublication) {
   @IsOptional()
   @IsNotEmpty()
   @IsNumber()

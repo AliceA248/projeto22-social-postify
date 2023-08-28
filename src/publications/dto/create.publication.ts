@@ -1,7 +1,7 @@
 import { Type } from 'class-transformer';
 import { IsNotEmpty, IsNumber } from 'class-validator';
 
-export class CreatePublicationDto {
+export class CreatePublication {
   @IsNotEmpty()
   @IsNumber()
   mediaId: number;

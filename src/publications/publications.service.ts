@@ -1,13 +1,13 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { CreatePublicationDto } from './dto/create.publication';
-import { UpdatePublicationDto } from './dto/update.publication';
+import { CreatePublication } from './dto/create.publication';
+import { UpdatePublication } from './dto/update.publication';
 import { PublicationsRepository } from './publications.repository';
 
 @Injectable()
 export class PublicationsService {
   constructor(private readonly publicationsRepository: PublicationsRepository) {}
 
-  async create(createPublicationDto: CreatePublicationDto) {
+  async create(createPublicationDto: CreatePublication) {
     const media = await this.publicationsRepository.checkMedias(createPublicationDto.mediaId);
     if (!media) {
       throw new HttpException('Media not found', 404);
@@ -30,7 +30,7 @@ export class PublicationsService {
     return await this.publicationsRepository.findOne(id);
   }
 
-  async update(id: number, updatePublicationDto: UpdatePublicationDto) {
+  async update(id: number, updatePublicationDto: UpdatePublication) {
     const media = await this.publicationsRepository.checkMedias(updatePublicationDto.mediaId);
     if (!media) {
       throw new HttpException('Media not found', 404);
