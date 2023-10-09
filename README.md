@@ -2,8 +2,34 @@ O "Social Postify" é um aplicativo web que permite aos usuários criar e agenda
 
 Os usuários podem criar publicações personalizadas com imagens, títulos, texto e selecionar a data e horário específicos para cada publicação. O sistema suporta o agendamento de várias publicações e fornece uma visão geral clara das postagens programadas.
 
+### Features
 
+- **Autenticação Segura:** Utilizamos um sistema de autenticação segura com JWT (JSON Web Tokens) para proteger os dados dos usuários.
 
+- **Gerenciamento de Dados:** Oferecemos operações CRUD completas (Criar, Ler, Atualizar, Excluir) para redes sociais, posts e publicações, permitindo que você tenha controle total sobre seus dados.
+
+- **Armazenamento Duradouro:** Seus dados são armazenados permanentemente em nosso banco de dados, garantindo que suas informações estejam sempre disponíveis.
+
+- **Filtragem Eficiente:** Implementamos um sistema de filtragem eficiente para que você possa encontrar rapidamente as informações de que precisa.
+
+- **Funcionalidades de Bloqueio:** Adicionamos funcionalidades de bloqueio para aumentar a segurança de sua conta.
+
+- **Publicações Agendadas:** Você pode programar e agendar suas publicações em redes sociais para maior conveniência.
+
+- **Testes Automatizados:** Cada rota é coberta por testes automatizados, garantindo que tudo funcione conforme o esperado.
+
+## Tecnologias
+<p>
+<img src="https://img.shields.io/badge/-Javascript-F7DF1E?logo=javascript&logoColor=white"  alt="JavaScript" width="100" height="30">
+<img src="https://img.shields.io/badge/-Node-339933?logo=nodedotjs&logoColor=white" width="80" height="30">
+<img src="https://img.shields.io/badge/-Typescript-3178C6?logo=typescript&logoColor=white" width="100" height="30">
+<img src="https://img.shields.io/badge/-PostgreSQL-4169E1?logo=postgresql&logoColor=white" width="100" height="30">
+<img src="https://img.shields.io/badge/-Prisma-2D3748?logo=prisma&logoColor=white" width="80" height="30">
+<img src="https://img.shields.io/badge/-Nest-E0234E?logo=nestjs&logoColor=white" width="80" height="30">
+<img src="https://img.shields.io/badge/-Jest-C21325?logo=jest&logoColor=white" width="80" height="30">
+<img src="https://img.shields.io/badge/-JWT-000000?logo=jsonwebtokens&logoColor=white" width="80" height="30">
+<img src="https://img.shields.io/badge/-.ENV-000000?logo=dotenv&logoColor=white" width="80" height="30">
+</p>
 
 
 
@@ -31,7 +57,7 @@ Os usuários podem criar publicações personalizadas com imagens, títulos, tex
 </p>
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
+  
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
